@@ -1,0 +1,21 @@
+# Trino cluster
+version: '3'
+services:
+
+  trino-coordinator:
+    image: otaciliopsf/trino-server
+    ports:
+      - '8080:8080'
+    volumes:
+      - ./trino-configs/cluster/coordinator/etc:/trino-server/etc
+      - ./trino-logs:/var/trino/data
+
+  trino-worker-1:
+    image: otaciliopsf/trino-server
+    volumes:
+      - ./trino-configs/cluster/worker-1/etc:/trino-server/etc
+
+  trino-worker-2:
+    image: otaciliopsf/trino-server
+    volumes:
+      - ./trino-configs/cluster/worker-2/etc:/trino-server/etc
