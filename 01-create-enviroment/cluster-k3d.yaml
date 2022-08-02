@@ -1,0 +1,21 @@
+apiVersion: k3d.io/v1alpha2
+kind: Simple
+name: de-opensource
+servers: 1
+agents: 1
+image: rancher/k3s:v1.22.11-k3s1
+ports:
+  - port: 9000:31000
+    nodeFilters:
+      - agent[0]
+  - port: 9001:32000
+    nodeFilters:
+      - agent[0]
+volumes:
+  - volume: /mnt/c/Users/otaci/Desktop/repos/data-eng-kubernetes-open-source/01-create-enviroment/cluster-data:/var/lib/rancher/k3s/storage
+    nodeFilters:
+      - all
+
+#options:
+#  k3d:
+#    disableLoadbalancer: true
