@@ -27,3 +27,8 @@ sudo rm -r ~/yb_data
 ```
 ip addr | grep eth0
 ```
+
+## Others tools
+
+- CockroachDB - for transactional db postgres protocol (seems better)
+- StarRocks - for OLAP db (mysql protocol)

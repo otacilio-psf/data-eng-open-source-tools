@@ -1,0 +1,29 @@
+# DE Open Source Architecture
+version: '3'
+services:
+
+  minio:
+    image: docker.io/bitnami/minio:2022
+    ports:
+      - '9000:9000'
+      - '9001:9001'
+    volumes:
+      - 'minio_data:/data'
+    environment:
+      - MINIO_ROOT_USER=minio-root-user
+      - MINIO_ROOT_PASSWORD=minio-root-password
+
+  dremio:
+    image: dremio/dremio-oss:22.0
+    ports:
+      - 9047:9047
+      - 31010:31010
+      - 45678:45678
+    volumes:
+      - 'dremio_data:/opt/dremio/data'
+
+volumes:
+  minio_data:
+    driver: local
+  dremio_data:
+    driver: local
