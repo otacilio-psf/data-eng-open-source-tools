@@ -3,7 +3,7 @@
 
 *-data
 */kube-news
-
+10-datalake-azurite/workspace
 # # Logs
 # logs
 # *.log

@@ -3,11 +3,11 @@
 ```
 # download
 
-wget https://archive.apache.org/dist/spark/spark-3.3.0/spark-3.3.0-bin-hadoop3.tgz
+wget -O spark.tgz https://archive.apache.org/dist/spark/spark-3.3.0/spark-3.3.0-bin-hadoop3.tgz
 
-tar xvzf spark-*.tgz
+tar xvzf spark.tgz
 
-rm spark-*.tgz
+rm spark.tgz
 
 cd spark-*
 
