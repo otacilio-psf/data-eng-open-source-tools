@@ -1,0 +1,37 @@
+version: '3.5'
+services:
+
+  postgres:
+    container_name: postgres
+    image: postgres:14
+    environment:
+      POSTGRES_USER: root
+      POSTGRES_PASSWORD: root
+      PGDATA: /data/postgres
+      POSTGRES_DB: postgres 
+    volumes:
+       - postgres-v:/data/postgres
+    ports:
+      - "5432:5432"
+    networks:
+      - pg-network
+    restart: unless-stopped
+  
+  cloudbeaver:
+    container_name: cloudbeaver
+    image: dbeaver/cloudbeaver:23
+    volumes:
+       - cloudbeaver-v:/opt/cloudbeaver/workspace
+    ports:
+      - "8080:8978"
+    networks:
+      - pg-network
+    restart: unless-stopped
+
+networks:
+  pg-network:
+    driver: bridge
+
+volumes:
+    postgres-v:
+    cloudbeaver-v:
